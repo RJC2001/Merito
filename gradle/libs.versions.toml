@@ -1,5 +1,9 @@
 [versions]
+<<<<<<< HEAD
 agp = "8.10.1"
+=======
+agp = "8.10.0"
+>>>>>>> origin/main
 kotlin = "2.0.21"
 coreKtx = "1.17.0"
 junit = "4.13.2"
