@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "231832065827",
+    "project_id": "merito-c8b99",
+    "storage_bucket": "merito-c8b99.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231832065827:android:9e2619056941adec0b1e96",
+        "android_client_info": {
+          "package_name": "com.rjc.merito"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL4aaDc4ihB1xKQ_6stCl_Md-NMWAZRYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

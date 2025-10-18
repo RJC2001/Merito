@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.rjc.merito" />
+                  <option name="mobileSdkAppId" value="1:231832065827:android:9e2619056941adec0b1e96" />
+                  <option name="projectId" value="merito-c8b99" />
+                  <option name="projectNumber" value="231832065827" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
