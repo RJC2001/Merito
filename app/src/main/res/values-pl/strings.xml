@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Merito</string>
+    <string name="signup_title">Rejestracja</string>
+    <string name="login_title">Logowanie</string>
+    <string name="tab_login">Logowanie</string>
+    <string name="tab_signup">Rejestracja</string>
+
+    <string name="hint_email_or_username">E‑mail lub nazwa użytkownika</string>
+    <string name="hint_email">Adres e‑mail</string>
+    <string name="hint_username">Nazwa użytkownika</string>
+    <string name="hint_password">Hasło</string>
+    <string name="hint_password_confirm">Powtórz hasło</string>
+    <string name="hint_verification_code">Kod weryfikacyjny</string>
+
+    <string name="btn_signup">Zarejestruj się</string>
+    <string name="btn_login">Zaloguj</string>
+    <string name="btn_create_account">Utwórz konto</string>
+    <string name="btn_have_code">Mam już kod</string>
+    <string name="btn_verify_code">Potwierdź kod</string>
+    <string name="btn_verify_check">Sprawdź weryfikację</string>
+    <string name="btn_verify_resend">Wyślij ponownie e‑mail weryfikacyjny</string>
+    <string name="btn_verify_cancel">Anuluj</string>
+    <string name="btn_open_email_app">Otwórz aplikację pocztową</string>
+
+    <string name="action_logout">Wyloguj</string>
+
+    <string name="fill_all_fields">Wypełnij wszystkie pola</string>
+    <string name="passwords_do_not_match">Hasła nie zgadzają się</string>
+    <string name="fill_credentials">Wypełnij pole e‑mail lub nazwę oraz hasło</string>
+
+    <string name="enter_code">Wprowadź kod weryfikacyjny</string>
+    <string name="enter_code_no_pending">Brak oczekującej rejestracji. Najpierw utwórz konto.</string>
+
+    <string name="verify_code_required">Konto niezweryfikowane. Wprowadź kod weryfikacyjny wysłany na e‑mail.</string>
+    <string name="verify_code_incorrect">Kod weryfikacyjny niepoprawny. Sprawdź kod i spróbuj ponownie.</string>
+    <string name="verify_code_success">Weryfikacja zakończona pomyślnie. Jesteś zalogowany.</string>
+    <string name="verify_code_subject">Kod weryfikacyjny Merito</string>
+    <string name="verify_code_body">Twój kod weryfikacyjny Merito to %1$s. Wprowadź go w aplikacji, aby dokończyć rejestrację.</string>
+
+    <string name="verify_title">Wprowadź kod weryfikacyjny</string>
+
+    <string name="verify_email_subject">Potwierdź swój adres e‑mail</string>
+    <string name="verify_email_instructions">Otwórz aplikację pocztową i kliknij link weryfikacyjny, aby potwierdzić adres e‑mail.</string>
+    <string name="verify_open_email_app_hint">Otwórz aplikację pocztową, aby znaleźć link weryfikacyjny, a następnie wróć tutaj i naciśnij Sprawdź weryfikację.</string>
+    <string name="verify_email_sent">Wysłano e‑mail weryfikacyjny. Sprawdź skrzynkę i zaloguj się ponownie po potwierdzeniu.</string>
+    <string name="verify_email_sent_success">E‑mail weryfikacyjny został wysłany.</string>
+    <string name="verify_email_send_failed">Wysłanie e‑maila weryfikacyjnego nie powiodło się. Spróbuj ponownie później.</string>
+    <string name="verify_email_retry_instructions">Jeśli nie widzisz wiadomości, sprawdź spam lub kliknij Wyślij ponownie.</string>
+
+    <string name="verify_pending_found">Znaleziono oczekującą weryfikację dla tego adresu. Sprawdź skrzynkę lub naciśnij Sprawdź weryfikację.</string>
+    <string name="verify_not_signed_in">Nie jesteś zalogowany. Zaloguj się, aby sprawdzić weryfikację lub naciśnij Wyślij ponownie.</string>
+    <string name="verify_no_pending">Brak oczekującej rejestracji. Najpierw utwórz konto.</string>
+    <string name="pending_info">Jeśli zamknąłeś aplikację, ponownie ją otwórz i naciśnij Sprawdź weryfikację lub Wyślij ponownie e‑mail.</string>
+
+    <string name="reset_email_sent">Wysłano e‑mail do zmiany hasła. Postępuj zgodnie z instrukcjami w skrzynce.</string>
+    <string name="verify_email_failed">Weryfikacja e‑maila nie powiodła się. Spróbuj ponownie lub poproś o nowy link weryfikacyjny.</string>
+
+    <string name="logged_in_success">Zalogowano pomyślnie</string>
+    <string name="err_generic_login">Nie udało się zalogować. Spróbuj ponownie.</string>
+    <string name="err_username_taken">Wybrana nazwa użytkownika jest już zajęta. Wybierz inną nazwę.</string>
+    <string name="err_weak_password">Hasło za słabe. Użyj co najmniej 6 znaków.</string>
+    <string name="err_email_used">Ten adres e‑mail jest już używany. Zaloguj się lub użyj innego adresu.</string>
+    <string name="err_invalid_email">Nieprawidłowy adres e‑mail.</string>
+    <string name="err_operation_not_allowed">Logowanie e‑mailem i hasłem jest wyłączone w konsoli Firebase.</string>
+    <string name="err_network">Błąd sieci. Sprawdź połączenie internetowe i spróbuj ponownie.</string>
+    <string name="err_generic">Błąd. Spróbuj ponownie.</string>
+
+    <string name="err_user_disabled">Konto zostało wyłączone. Skontaktuj się z pomocą techniczną.</string>
+    <string name="err_user_not_found">Nie znaleziono konta dla tego adresu e‑mail.</string>
+    <string name="err_wrong_password">Hasło jest niepoprawne.</string>
+    <string name="err_too_many_requests">Za dużo prób. Spróbuj ponownie później.</string>
+    <string name="err_invalid_credentials">Podano nieprawidłowe dane logowania.</string>
+
+    <string name="verify_open_email_app_cta">Otwórz aplikację pocztową</string>
+
+    <string name="forgot_password">Zapomniałeś hasła?</string>
+    <string name="action_send">Wyślij</string>
+    <string name="reset_email_if_exists">Jeśli istnieje konto przypisane do tego adresu, wyślemy wiadomość z instrukcjami resetu hasła.</string>
+</resources>

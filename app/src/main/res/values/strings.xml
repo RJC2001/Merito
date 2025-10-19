@@ -1,3 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Merito</string>
+    <string name="signup_title">Registration</string>
+    <string name="login_title">Login</string>
+    <string name="tab_login">Login</string>
+    <string name="tab_signup">Registration</string>
+
+    <string name="hint_email_or_username">Email or username</string>
+    <string name="hint_email">Email address</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_password_confirm">Confirm password</string>
+    <string name="hint_verification_code">Verification code</string>
+
+    <string name="btn_signup">Sign up</string>
+    <string name="btn_login">Log in</string>
+    <string name="btn_create_account">Create account</string>
+    <string name="btn_have_code">I already have a code</string>
+    <string name="btn_verify_code">Verify code</string>
+    <string name="btn_verify_check">Check verification</string>
+    <string name="btn_verify_resend">Resend verification email</string>
+    <string name="btn_verify_cancel">Cancel</string>
+    <string name="btn_open_email_app">Open email app</string>
+
+    <string name="action_logout">Log out</string>
+
+    <string name="fill_all_fields">Fill all fields</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="fill_credentials">Enter email or username and password</string>
+
+    <string name="enter_code">Enter the verification code</string>
+    <string name="enter_code_no_pending">No pending registration found. Create an account first.</string>
+
+    <string name="verify_code_required">Account not verified. Enter verification code sent to your email.</string>
+    <string name="verify_code_incorrect">The verification code is incorrect. Check the code and try again.</string>
+    <string name="verify_code_success">Verification successful. You are now signed in.</string>
+    <string name="verify_code_subject">Your Merito verification code</string>
+    <string name="verify_code_body">Your Merito verification code is %1$s. Enter it in the app to complete registration.</string>
+
+    <string name="verify_title">Enter verification code</string>
+
+    <string name="verify_email_subject">Confirm your email address</string>
+    <string name="verify_email_instructions">Open your email app and click the verification link to confirm your email address.</string>
+    <string name="verify_open_email_app_hint">Open your mail app to find the verification link, then return here and press Check verification.</string>
+    <string name="verify_email_sent">Verification email sent. Check your inbox and sign in again after confirming.</string>
+    <string name="verify_email_sent_success">Verification email was sent successfully.</string>
+    <string name="verify_email_send_failed">Sending verification email failed. Try again later.</string>
+    <string name="verify_email_retry_instructions">If you don\'t see the email, check Spam or click Resend.</string>
+
+    <string name="verify_pending_found">A pending verification was found for this email. Check your inbox or press Check verification.</string>
+    <string name="verify_not_signed_in">You are not signed in. Sign in first to check verification or press Resend.</string>
+    <string name="verify_no_pending">No pending registration found. Please create an account first.</string>
+    <string name="pending_info">If you closed the app, reopen and press Check verification or Resend email.</string>
+
+    <string name="reset_email_sent">Password reset email sent. Follow instructions in your inbox to regain access.</string>
+    <string name="verify_email_failed">Email verification failed. Please try again or request a new verification email.</string>
+
+    <string name="logged_in_success">Successfully signed in</string>
+    <string name="err_generic_login">Failed to sign in. Please try again.</string>
+    <string name="err_username_taken">The chosen username is already taken. Pick another one.</string>
+    <string name="err_weak_password">Password too weak. Use at least 6 characters.</string>
+    <string name="err_email_used">This email address is already in use. Sign in or use a different email.</string>
+    <string name="err_invalid_email">Invalid email address.</string>
+    <string name="err_operation_not_allowed">Email and password sign-in is disabled in the Firebase Console.</string>
+    <string name="err_network">Network error. Check your internet connection and try again.</string>
+    <string name="err_generic">Error. Please try again.</string>
+
+    <string name="err_user_disabled">This user account has been disabled. Contact support.</string>
+    <string name="err_user_not_found">No account found with this email.</string>
+    <string name="err_wrong_password">The password is incorrect.</string>
+    <string name="err_too_many_requests">Too many requests. Try again later.</string>
+    <string name="err_invalid_credentials">Invalid credentials provided.</string>
+
+    <string name="verify_open_email_app_cta">Open mail app</string>
+
+    <string name="forgot_password">Forgot password?</string>
+    <string name="action_send">Send</string>
+    <string name="reset_email_if_exists">If an account exists for that address, we will send a password reset email.</string>
 </resources>

@@ -12,7 +12,16 @@
           "package_name": "com.rjc.merito"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "231832065827-3agh64tmdh6n039gc2otpctrhgeo8sj8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rjc.merito",
+            "certificate_hash": "44a26f91620346f39dc94343d2edf2511351a739"
+          }
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAL4aaDc4ihB1xKQ_6stCl_Md-NMWAZRYM"
