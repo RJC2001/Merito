@@ -77,4 +77,26 @@
     <string name="forgot_password">Zapomniałeś hasła?</string>
     <string name="action_send">Wyślij</string>
     <string name="reset_email_if_exists">Jeśli istnieje konto przypisane do tego adresu, wyślemy wiadomość z instrukcjami resetu hasła.</string>
+    <string name="btn_verify_and_finish">Zweryfikuj i zakończ</string>
+    <string name="verify_email_resend">Wyślij ponownie e-mail weryfikacyjny</string>
+    <string name="btn_send_verification_link">Wyślij link weryfikacyjny</string>
+    <string name="err_fill_username_password_min6">Wprowadź nazwę użytkownika i hasło zawierające co najmniej 6 znaków</string>
+    <string name="btn_check_code">Sprawdź kod</string>
+    <string name="action_cancel">Anuluj</string>
+    <string name="err_invalid_code">Wprowadź 6-cyfrowy kod weryfikacyjny</string>
+    <string name="verify_already_done">Adres e-mail już zweryfikowany</string>
+    <string name="err_wrong_code">Nieprawidłowy kod weryfikacyjny</string>
+    <string name="btn_resend_verification">Wyślij ponownie e-mail weryfikacyjny</string>
+    <string name="verify_not_verified_yet">Adres e-mail nie został jeszcze zweryfikowany</string>
+    <string name="hint_confirm_password">Potwierdź hasło</string>
+    <string name="err_passwords_mismatch">Hasła nie są identyczne</string>
+    <string name="btn_check_verification">Sprawdź weryfikację</string>
+    <string name="err_wait_before_resend">Poczekaj przed ponownym wysłaniem</string>
+    <string name="btn_confirm_registration">Zatwierdź</string>
+    <string name="err_email_in_use_try_resend_or_reset">Adres e‑mail jest już w użyciu; możesz spróbować ponownie wysłać weryfikację lub zresetować hasło</string>
+    <string name="err_email_in_use_try_reset">Adres e‑mail jest już w użyciu; spróbuj zresetować hasło do tego konta</string>
+    <string name="err_email_in_use_try_reset_or_oauth">Adres e‑mail jest zarejestrowany inną metodą; spróbuj resetu hasła lub zaloguj się przez tego dostawcę</string>
+    <string name="err_recent_login_required">Wymagane niedawne logowanie. Spróbuj ponownie lub zaloguj się jeszcze raz, aby kontynuować</string>
+    <string name="err_username_reserved">Nazwa użytkownika tymczasowo zarezerwowana przez inną sesję. Spróbuj ponownie lub wybierz inną nazwę</string>
+    <string name="err_email_already_verified">Ten adres e‑mail jest już zweryfikowany. Jeśli to Twoje konto, zaloguj się lub skorzystaj z odzyskiwania hasła.</string>
 </resources>

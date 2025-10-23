@@ -77,4 +77,26 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="action_send">Send</string>
     <string name="reset_email_if_exists">If an account exists for that address, we will send a password reset email.</string>
+    <string name="btn_verify_and_finish">Verify and Finish</string>
+    <string name="verify_email_resend">Resend Verification Email</string>
+    <string name="btn_send_verification_link">Send Verification Link</string>
+    <string name="err_fill_username_password_min6">Please enter a username and a password of at least 6 characters</string>
+    <string name="btn_check_code">Check code</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="err_invalid_code">Enter a 6-digit verification code</string>
+    <string name="verify_already_done">Email already verified</string>
+    <string name="err_wrong_code">Wrong verification code</string>
+    <string name="btn_resend_verification">Resend verification email</string>
+    <string name="verify_not_verified_yet">Email not verified yet</string>
+    <string name="hint_confirm_password">Confirm password</string>
+    <string name="err_passwords_mismatch">Passwords do not match</string>
+    <string name="btn_check_verification">Check verification</string>
+    <string name="err_wait_before_resend">Wait before resending</string>
+    <string name="btn_confirm_registration">Confirm</string>
+    <string name="err_email_in_use_try_resend_or_reset">Email is already in use; you can try resending verification or reset the password</string>
+    <string name="err_email_in_use_try_reset">Email is already in use; try resetting the password for that account</string>
+    <string name="err_email_in_use_try_reset_or_oauth">Email is already registered with another method; try password reset or sign in via that provider</string>
+    <string name="err_recent_login_required">Recent sign-in required. Please retry or sign in again to continue</string>
+    <string name="err_username_reserved">Username is temporarily reserved by another session. Try again or choose a different username</string>
+    <string name="err_email_already_verified">This email address has already been verified. If this is your account, please sign in or use password recovery.</string>
 </resources>

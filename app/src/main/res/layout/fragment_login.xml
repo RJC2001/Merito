@@ -24,7 +24,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:minHeight="48dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etLoginEmail"
@@ -32,21 +33,26 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:hint="@string/hint_email_or_username"
-                android:autofillHints="username" />
+                android:autofillHints="username"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            app:endIconMode="password_toggle">
+            app:endIconMode="password_toggle"
+            android:minHeight="48dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etLoginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="@string/hint_password" />
+                android:hint="@string/hint_password"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -54,17 +60,20 @@
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             android:text="@string/btn_login" />
 
         <TextView
             android:id="@+id/tvForgotPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
             android:text="@string/forgot_password"
             android:textAppearance="?attr/textAppearanceBody2"
             android:gravity="center"
             android:textColor="?attr/colorPrimary"
-            android:paddingTop="12dp"
             android:clickable="true"
             android:focusable="true" />
 
