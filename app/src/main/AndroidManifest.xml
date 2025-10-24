@@ -21,6 +21,10 @@
         tools:targetApi="35">
 
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".VerifyActivity"
             android:exported="false" />
 
@@ -34,7 +38,7 @@
         </activity>
 
         <activity
-            android:name=".GalleryActivity"
+            android:name=".PhotoFormActivity"
             android:exported="false" />
 
         <provider

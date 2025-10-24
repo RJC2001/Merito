@@ -367,7 +367,7 @@ class VerifyActivity : AppCompatActivity() {
             prefs.edit().remove("pending_uid").remove("pending_email").apply()
             btnConfirmRegistration.isEnabled = true
             Toast.makeText(this, getString(R.string.verify_code_success), Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, GalleryActivity::class.java).apply {
+            startActivity(Intent(this, MainActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             })
             finish()

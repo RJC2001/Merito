@@ -207,7 +207,7 @@ class LoginFragment : Fragment() {
             prefs2.edit().remove("pending_username").remove("pending_email").apply()
             Toast.makeText(requireContext(), getString(R.string.logged_in_success), Toast.LENGTH_SHORT).show()
             try {
-                val i = Intent(requireActivity(), GalleryActivity::class.java)
+                val i = Intent(requireActivity(), MainActivity::class.java)
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(i)
                 requireActivity().finish()
