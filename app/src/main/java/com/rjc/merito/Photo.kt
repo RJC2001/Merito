@@ -5,5 +5,6 @@ data class Photo(
     val title: String,
     val thumbUrl: String,
     val fullUrl: String,
-    val ownerUid: String? = null
+    val ownerUid: String? = null,
+    val searchText: String = ""
 )

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import com.google.firebase.auth.FirebaseAuth
 import com.rjc.merito.databinding.ActivityMainBinding
 
@@ -74,6 +75,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_gallery_toolbar, menu)
+        val item = menu?.findItem(R.id.action_search)
+        val searchView = item?.actionView as? SearchView
+        searchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                val active = supportFragmentManager.findFragmentById(R.id.fragment_container)
+                if (active is SearchableFragment) active.onSearchQuery(query ?: "")
+                return true
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val active = supportFragmentManager.findFragmentById(R.id.fragment_container)
+                if (active is SearchableFragment) active.onSearchQuery(newText ?: "")
+                return true
+            }
+        })
         return true
     }
 

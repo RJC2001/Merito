@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.Date
 
-class ProfileFragment : Fragment(), Refreshable {
+class ProfileFragment : Fragment(), Refreshable, SearchableFragment {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
@@ -66,6 +66,10 @@ class ProfileFragment : Fragment(), Refreshable {
 
     override fun refresh() { loadUserPhotos() }
 
+    override fun onSearchQuery(query: String) {
+        adapter?.filter(query)
+    }
+
     private fun loadUserPhotos() {
         val uid = auth.currentUser?.uid
         Log.d("Profile", "Loading for uid=$uid")
@@ -106,7 +110,7 @@ class ProfileFragment : Fragment(), Refreshable {
                 photos.clear()
                 photos.addAll(temp.map { it.first })
 
-                adapter?.notifyDataSetChanged()
+                adapter?.replaceAll(photos)
                 binding.emptyState.visibility = if (photos.isEmpty()) View.VISIBLE else View.GONE
                 Log.d("Profile", "Loaded user photos=${photos.size} for uid=$uid")
             } catch (e: Exception) {
