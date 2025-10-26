@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val auth = FirebaseAuth.getInstance()
+    private var searchViewField: SearchView? = null
 
     private val galleryTag = "gallery_fragment"
     private val profileTag = "profile_fragment"
@@ -60,6 +61,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             transaction.show(existing)
         }
+        searchViewField?.clearFocus()
+        binding.toolbar.menu.findItem(R.id.action_search)?.let { menuItem ->
+            binding.toolbar.post { menuItem.collapseActionView() }
+        }
         transaction.commitAllowingStateLoss()
     }
 
@@ -73,6 +78,8 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_gallery_toolbar, menu)
         val item = menu?.findItem(R.id.action_search)
         val searchView = item?.actionView as? SearchView
+        searchViewField = searchView
+        searchView?.setIconifiedByDefault(true)
         searchView?.queryHint = getString(R.string.search)
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -87,8 +94,17 @@ class MainActivity : AppCompatActivity() {
             }
         })
         searchView?.setOnCloseListener {
-            item?.collapseActionView()
-            true
+            searchView.clearFocus()
+            searchView.setQuery("", false)
+            item?.let { menuItem -> searchView.post { menuItem.collapseActionView() } }
+            false
+        }
+        searchView?.setOnQueryTextFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                searchView.clearFocus()
+                searchView.setQuery("", false)
+                item?.let { menuItem -> searchView.post { menuItem.collapseActionView() } }
+            }
         }
         return true
     }
