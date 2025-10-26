@@ -134,4 +134,5 @@
     <string name="add_photo">Dodaj zdjęcie</string>
     <string name="not_owner">Nie jesteś właścicielem</string>
     <string name="search">Szukaj</string>
+    <string name="update">Aktualizuj</string>
 </resources>

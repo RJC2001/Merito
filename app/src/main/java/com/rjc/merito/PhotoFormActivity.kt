@@ -69,15 +69,20 @@ class PhotoFormActivity : AppCompatActivity() {
         }
 
         if (isEditMode) {
-            binding.btnSave.text = getString(R.string.delete)
-            binding.btnSave.setOnClickListener { onDeleteClicked() }
+            binding.btnDelete.visibility = android.view.View.VISIBLE
+            binding.btnSave.text = getString(R.string.update)
+            binding.btnDelete.text = getString(R.string.delete)
+            binding.btnSave.setOnClickListener { onSaveClicked() }
+            binding.btnDelete.setOnClickListener { onDeleteClicked() }
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     val doc = firestore.collection("gallery").document(photoId).get().awaitSuspend()
                     val desc = doc.getString("description") ?: ""
                     val remote = doc.getString("remoteUrl") ?: ""
+                    val title = doc.getString("title") ?: ""
                     withContext(Dispatchers.Main) {
                         binding.etDescription.setText(desc)
+                        binding.etTitle.setText(title)
                         if (remote.isNotEmpty() && binding.imgPreview.drawable == null) {
                             Glide.with(this@PhotoFormActivity).load(remote).centerCrop().into(binding.imgPreview)
                             binding.imgPreview.visibility = android.view.View.VISIBLE
@@ -86,6 +91,7 @@ class PhotoFormActivity : AppCompatActivity() {
                 } catch (_: Exception) { }
             }
         } else {
+            binding.btnDelete.visibility = android.view.View.GONE
             binding.btnSave.text = getString(R.string.save)
             binding.btnSave.setOnClickListener { onSaveClicked() }
         }
@@ -98,14 +104,14 @@ class PhotoFormActivity : AppCompatActivity() {
             Toast.makeText(this, getString(R.string.err_not_authenticated), Toast.LENGTH_LONG).show()
             return
         }
-        binding.btnSave.isEnabled = false
+        binding.btnDelete.isEnabled = false
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val snap = firestore.collection("gallery").document(photoId).get().awaitSuspend()
                 val owner = snap.getString("ownerUid")
                 if (owner != uid) {
                     withContext(Dispatchers.Main) {
-                        binding.btnSave.isEnabled = true
+                        binding.btnDelete.isEnabled = true
                         Toast.makeText(this@PhotoFormActivity, getString(R.string.err_not_owner), Toast.LENGTH_LONG).show()
                     }
                     return@launch
@@ -118,7 +124,7 @@ class PhotoFormActivity : AppCompatActivity() {
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    binding.btnSave.isEnabled = true
+                    binding.btnDelete.isEnabled = true
                     Toast.makeText(this@PhotoFormActivity, getString(R.string.err_api_failed) + ": " + (e.localizedMessage ?: "error"), Toast.LENGTH_LONG).show()
                 }
             }
@@ -143,7 +149,6 @@ class PhotoFormActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val currentUser = auth.currentUser
-                android.util.Log.d("PhotoForm", "Before save: currentUser=${currentUser?.uid} email=${currentUser?.email}")
                 if (currentUser == null) {
                     withContext(Dispatchers.Main) {
                         binding.btnSave.isEnabled = true
@@ -162,9 +167,7 @@ class PhotoFormActivity : AppCompatActivity() {
                     "ownerUid" to currentUser.uid
                 )
 
-                android.util.Log.d("PhotoForm", "Document to write: ownerUid=${currentUser.uid} id=$idToUse")
                 firestore.collection("gallery").document(idToUse).set(doc).awaitSuspend()
-                android.util.Log.d("PhotoForm", "Saved doc ownerUid=${currentUser.uid} id=$idToUse")
 
                 withContext(Dispatchers.Main) {
                     setResult(RESULT_OK)
@@ -172,7 +175,6 @@ class PhotoFormActivity : AppCompatActivity() {
                     finish()
                 }
             } catch (e: Exception) {
-                android.util.Log.e("PhotoForm", "Save failed", e)
                 withContext(Dispatchers.Main) {
                     binding.btnSave.isEnabled = true
                     binding.btnSave.alpha = 1f
