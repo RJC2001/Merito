@@ -21,16 +21,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.toolbar)
-
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, GalleryFragment(), galleryTag)
                 .commit()
             binding.bottomNav.selectedItemId = R.id.nav_gallery
         }
-
         binding.bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_gallery -> {
@@ -44,7 +41,6 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
         intent?.getStringExtra("start_tab")?.let { tab ->
             when (tab) {
                 "profile", "user" -> binding.bottomNav.selectedItemId = R.id.nav_profile
@@ -79,12 +75,12 @@ class MainActivity : AppCompatActivity() {
         val searchView = item?.actionView as? SearchView
         searchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                val active = supportFragmentManager.findFragmentById(R.id.fragment_container)
+                val active = supportFragmentManager.fragments.firstOrNull { it.isVisible }
                 if (active is SearchableFragment) active.onSearchQuery(query ?: "")
                 return true
             }
             override fun onQueryTextChange(newText: String?): Boolean {
-                val active = supportFragmentManager.findFragmentById(R.id.fragment_container)
+                val active = supportFragmentManager.fragments.firstOrNull { it.isVisible }
                 if (active is SearchableFragment) active.onSearchQuery(newText ?: "")
                 return true
             }
