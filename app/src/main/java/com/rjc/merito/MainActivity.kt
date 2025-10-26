@@ -73,7 +73,8 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_gallery_toolbar, menu)
         val item = menu?.findItem(R.id.action_search)
         val searchView = item?.actionView as? SearchView
-        searchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+        searchView?.queryHint = getString(R.string.search)
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 val active = supportFragmentManager.fragments.firstOrNull { it.isVisible }
                 if (active is SearchableFragment) active.onSearchQuery(query ?: "")
@@ -85,6 +86,10 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
+        searchView?.setOnCloseListener {
+            item?.collapseActionView()
+            true
+        }
         return true
     }
 
