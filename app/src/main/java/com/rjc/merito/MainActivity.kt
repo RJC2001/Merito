@@ -1,9 +1,12 @@
 package com.rjc.merito
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import com.google.firebase.auth.FirebaseAuth
@@ -79,7 +82,6 @@ class MainActivity : AppCompatActivity() {
         val item = menu?.findItem(R.id.action_search)
         val searchView = item?.actionView as? SearchView
         searchViewField = searchView
-        searchView?.setIconifiedByDefault(true)
         searchView?.queryHint = getString(R.string.search)
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -93,6 +95,19 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
+        val closeButton = searchView?.findViewById<View>(androidx.appcompat.R.id.search_close_btn)
+        closeButton?.setOnClickListener {
+            searchView?.setQuery("", false)
+            searchView?.clearFocus()
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+            imm?.hideSoftInputFromWindow(searchView?.windowToken, 0)
+            try {
+                searchView?.onActionViewCollapsed()
+            } catch (e: Exception) {
+                item?.collapseActionView()
+            }
+            item?.collapseActionView()
+        }
         searchView?.setOnCloseListener {
             searchView.clearFocus()
             searchView.setQuery("", false)
