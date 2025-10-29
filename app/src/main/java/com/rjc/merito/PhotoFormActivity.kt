@@ -1,7 +1,11 @@
 package com.rjc.merito
 
+import android.app.DownloadManager
+import android.content.Context
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -48,8 +52,39 @@ class PhotoFormActivity : AppCompatActivity() {
         binding.etTitle.setText(photoTitle)
         binding.etDescription.visibility = android.view.View.VISIBLE
 
+        // Initialize download button state and click handler
+        binding.btnDownload.visibility = android.view.View.GONE
+        binding.btnDownload.isEnabled = false
+        binding.btnDownload.setOnClickListener {
+            val url = photoFullFromIntent.trim()
+            if (url.isEmpty()) {
+                Toast.makeText(this, getString(R.string.err_no_url), Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            try {
+                val dm = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+                val uri = Uri.parse(url)
+                val request = DownloadManager.Request(uri)
+                    .setTitle(binding.etTitle.text?.toString()?.ifEmpty { "image" })
+                    .setDescription(getString(R.string.download_description))
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, "${UUID.randomUUID()}.jpg")
+                    .setAllowedOverMetered(true)
+                    .setAllowedOverRoaming(true)
+
+                dm.enqueue(request)
+                Toast.makeText(this, getString(R.string.download_started), Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(this, getString(R.string.err_download_failed) + ": " + (e.localizedMessage ?: "error"), Toast.LENGTH_LONG).show()
+            }
+        }
+
         if (photoFullFromIntent.isNotEmpty()) {
             binding.imgPreview.visibility = android.view.View.VISIBLE
+            // enable download button when we have a URL
+            binding.btnDownload.visibility = android.view.View.VISIBLE
+            binding.btnDownload.isEnabled = true
+
             Glide.with(this)
                 .load(photoFullFromIntent)
                 .centerCrop()
@@ -66,6 +101,8 @@ class PhotoFormActivity : AppCompatActivity() {
                 .into(binding.imgPreview)
         } else {
             binding.imgPreview.visibility = android.view.View.GONE
+            binding.btnDownload.visibility = android.view.View.GONE
+            binding.btnDownload.isEnabled = false
         }
 
         if (isEditMode) {
@@ -83,6 +120,14 @@ class PhotoFormActivity : AppCompatActivity() {
                     withContext(Dispatchers.Main) {
                         binding.etDescription.setText(desc)
                         binding.etTitle.setText(title)
+
+                        // prefer remote URL from firestore if intent didn't supply one
+                        if (photoFullFromIntent.isEmpty() && remote.isNotEmpty()) {
+                            photoFullFromIntent = remote
+                            binding.btnDownload.visibility = android.view.View.VISIBLE
+                            binding.btnDownload.isEnabled = true
+                        }
+
                         if (remote.isNotEmpty() && binding.imgPreview.drawable == null) {
                             Glide.with(this@PhotoFormActivity).load(remote).centerCrop().into(binding.imgPreview)
                             binding.imgPreview.visibility = android.view.View.VISIBLE

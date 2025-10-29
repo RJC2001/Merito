@@ -82,6 +82,16 @@
                     android:textColor="@android:color/white" />
 
             </LinearLayout>
+
+            <!-- Download button placed below the other buttons, as requested -->
+            <Button
+                android:id="@+id/btnDownload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/download"
+                android:visibility="gone" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

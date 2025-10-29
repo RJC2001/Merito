@@ -68,4 +68,9 @@
     <string name="search">Szukaj</string>
     <string name="update">Aktualizuj</string>
     <string name="fill_credentials">Wypełnij pole e‑mail lub nazwę oraz hasło</string>
+    <string name="err_no_url">Brak adresu URL obrazu do pobrania</string>
+    <string name="download_description">Pobieranie obrazu</string>
+    <string name="download_started">Pobieranie rozpoczęte</string>
+    <string name="err_download_failed">Pobieranie nie powiodło się</string>
+    <string name="download">Pobierz</string>
 </resources>
